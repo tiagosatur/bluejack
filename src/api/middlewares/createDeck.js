@@ -1,6 +1,6 @@
-export default function({ data }) {
+export default function ({ data }) {
   return {
     deckId: data.deck_id,
-    success: data.success
+    success: data.success,
   };
 }

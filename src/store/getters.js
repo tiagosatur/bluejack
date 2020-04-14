@@ -1,3 +1,3 @@
 export default {
-  getDeckId: state => ({ deckId: state.deck.deckId })
+  getDeckId: (state) => ({ deckId: state.deck.deckId }),
 };
