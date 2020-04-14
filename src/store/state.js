@@ -2,12 +2,16 @@ export default {
   deck: {
     deckId: "",
     isDeckLoading: false,
-    error: ""
+    error: "",
   },
   pile: {
-    name: "",
+    name: {
+      blueJackPile: "blueJackPile",
+      rotationCardPile: "rotationCardPile",
+    },
     isPileLoading: false,
     error: "",
-    cards: []
-  }
+    cards: [],
+    rotationCard: null,
+  },
 };

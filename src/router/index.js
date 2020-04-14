@@ -1,8 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "@/pages/home/Home";
-import NewDeck from "@/pages/deck/new/NewDeck";
-import ViewDeck from "@/pages/deck/view/ViewDeck";
+import Home from "@/pages/Home/Home";
+import NewPile from "@/pages/NewPile/NewPile";
+import ViewPile from "@/pages/ViewPile/ViewPile";
 
 Vue.use(Router);
 
@@ -11,18 +11,18 @@ export default new Router({
     {
       path: "/",
       name: "Home",
-      component: Home
+      component: Home,
     },
     {
       path: "/deck/new",
-      name: "New Deck",
-      component: NewDeck
+      name: "New Pile",
+      component: NewPile,
     },
     {
       path: "/deck/:deckId",
-      name: "View Deck",
-      component: ViewDeck
-    }
+      name: "View Pile",
+      component: ViewPile,
+    },
   ],
-  mode: "history"
+  mode: "history",
 });

@@ -4,11 +4,58 @@ import api from "../api";
 export default {
   createDeck: ({ commit }) => {
     commit(TYPES.CREATE_DECK_PENDING);
-    return api.post.createDeckService
-      .then(res => {
+    return api.get
+      .createDeckService()
+      .then(async (res) => {
         !res.success && Promise.reject(res);
         commit(TYPES.CREATE_DECK_SUCCESS, res);
+        return res.deckId;
       })
-      .catch(e => commit(TYPES.CREATE_DECK_FAIL, e));
-  }
+      .catch((e) => commit(TYPES.CREATE_DECK_FAIL, e));
+  },
+  drawDeck: ({ commit, state }) => {
+    commit(TYPES.DRAW_DECK_PENDING);
+    return api.get
+      .drawDeckService(state.deck.deckId)
+      .then((res) => {
+        !res.success && Promise.reject(res);
+        commit(TYPES.DRAW_DECK_SUCCESS);
+        return res;
+      })
+      .catch((e) => commit(TYPES.DRAW_DECK_FAIL, e));
+  },
+  addPile: ({ commit, state }, { cards, rotationCard }) => {
+    commit(TYPES.ADD_PILE_PENDING);
+    return api.get
+      .addPileService({
+        deckId: state.deck.deckId,
+        rotationCardPile: state.pile.name.rotationCardPile,
+        blueJackPile: state.pile.name.blueJackPile,
+        cards,
+        rotationCard,
+      })
+      .then((res) => {
+        !res.success && Promise.reject(res);
+        commit(TYPES.ADD_PILE_SUCCESS, res);
+        return res;
+      })
+      .catch((e) => commit(TYPES.ADD_PILE_FAIL, e));
+  },
+  getPile: ({ commit, state }, deckId) => {
+    commit(TYPES.GET_PILE_PENDING);
+    return api.get
+      .getPileService({
+        deckId,
+        rotationCardPile: state.pile.name.rotationCardPile,
+        blueJackPile: state.pile.name.blueJackPile,
+      })
+      .then((res) => {
+        !res.success && Promise.reject(res);
+        commit(TYPES.GET_PILE_SUCCESS, res);
+        return res;
+      })
+      .catch((e) => {
+        commit(TYPES.GET_PILE_FAIL, e);
+      });
+  },
 };
