@@ -12,7 +12,8 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 
 new Vue({
-  render: h => h(App),
+  render: (h) => h(App),
   router,
-  store
+  store,
 }).$mount("#app");
+window.Vue = Vue;

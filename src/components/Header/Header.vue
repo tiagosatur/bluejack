@@ -1,6 +1,6 @@
 <template>
   <header class="d-flex flex-column justify-content-center align-items-center">
-    <h1 class="font-weight-normal display-4 mb-5">
+    <h1 class="test-id-title font-weight-normal display-4 mb-5 text-primary">
       {{ title }}
     </h1>
   </header>

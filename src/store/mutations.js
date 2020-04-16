@@ -51,7 +51,8 @@ export default {
     state.pile.rotationCard = payload.rotationCard;
   },
   [TYPES.GET_PILE_FAIL](state, error) {
-    state.pile.error = "We couldn't fetch the cards, try again please :(";
+    state.pile.error =
+      "We couldn't fetch the cards or the rotation card, try again please :(";
     console.log("GET PILE FAIL ERROR -->", error);
     state.pile.isPileLoading = false;
   },

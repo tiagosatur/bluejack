@@ -1,10 +1,10 @@
 <template>
   <div class="bj-card">
     <div class="bj-card__top">
-      <span class="bj-card__number">
+      <span class="bj-card__number test-id-number">
         {{ number }}
       </span>
-      <span class="bj-card__suit" v-html="suit"></span>
+      <span class="bj-card__suit test-id-suit" v-html="suit"></span>
     </div>
     <div class="bj-card__bottom">
       <span class="bj-card__number">
@@ -16,36 +16,23 @@
 </template>
 
 <script>
-import PLAYBOOK from "@/utils/playbook";
+import { switchSuit } from "@/utils";
 
 export default {
-  name: "NewDeck",
+  name: "Card",
   data() {
     return {
-      number: "1",
+      number: "",
       suit: null,
     };
   },
   props: ["value"],
   methods: {
     setValues() {
-      const splittedValue = this.value.split("");
-      this.number = splittedValue[0];
-
-      this.suit = this.switchSuit(splittedValue[1]);
-    },
-    switchSuit(suit) {
-      switch (suit) {
-        case PLAYBOOK.SUITS_OBJ.HEARTS:
-          return "&#9829;";
-        case PLAYBOOK.SUITS_OBJ.DIAMONDS:
-          return "&#9830;";
-        case PLAYBOOK.SUITS_OBJ.CLUBS:
-          return "&#9827;";
-        case PLAYBOOK.SUITS_OBJ.SPADES:
-          return "&#9824;";
-        default:
-          return "";
+      if (this.value) {
+        const splittedValue = this.value.split("");
+        this.number = splittedValue[0];
+        this.suit = switchSuit(splittedValue[1]);
       }
     },
   },
