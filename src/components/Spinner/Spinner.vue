@@ -9,6 +9,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "@/style/colors";
+
 .bj-loader {
   font-size: 10px;
   margin: 50px auto;
@@ -16,8 +18,8 @@ export default {
   width: 4em;
   height: 4em;
   border-radius: 50%;
-  background: #ffeb3b;
-  background: linear-gradient(left, #ffeb3b 10%, rgba(255, 255, 255, 0) 42%);
+  background: $cPrimary;
+  background: linear-gradient(left, $cPrimary 10%, rgba(255, 255, 255, 0) 42%);
   position: relative;
   animation: spinnerAnimation 1.4s infinite linear;
   transform: translateZ(0);
@@ -25,7 +27,7 @@ export default {
 .bj-loader:before {
   width: 50%;
   height: 50%;
-  background: #ffeb3b;
+  background: $cPrimary;
   border-radius: 100% 0 0 0;
   position: absolute;
   top: 0;

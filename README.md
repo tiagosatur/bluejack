@@ -17,19 +17,31 @@ This is a frontend challenge where the user can to input some card values and th
 - Axios
 - Sass
 
-## Project setup
+## Images
+
+![Ordered pile cards](https://i.ibb.co/Gx7hZt9/screen01.png "Ordered pile cards")
+
+![Ordered pile result](https://i.ibb.co/3CJW7Z2/screen02.png "Ordered pile result")
+
+## Installing
 
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Running
 
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+## Testing
+
+```
+yarn run test
+```
+
+### Building
 
 ```
 yarn build

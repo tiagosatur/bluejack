@@ -39,7 +39,10 @@ export default {
         commit(TYPES.ADD_PILE_SUCCESS, res);
         return res;
       })
-      .catch((e) => commit(TYPES.ADD_PILE_FAIL, e));
+      .catch((e) => {
+        commit(TYPES.ADD_PILE_FAIL, e);
+        return e;
+      });
   },
   getPile: ({ commit, state }, deckId) => {
     commit(TYPES.GET_PILE_PENDING);

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="test-id-home">
     <Header title="Let's play Blue Jack?" />
     <div class="d-flex flex-column align-items-center">
       <p>
@@ -44,7 +44,9 @@
       </div>
     </div>
     <router-link to="/deck/new" class="d-flex justify-content-center">
-      <b-button variant="primary" class="btn-lg py-3 px-5 mt-5"
+      <b-button
+        variant="primary"
+        class="test-id-button-start btn-lg py-3 px-5 mt-5"
         >Start!</b-button
       >
     </router-link>
@@ -52,7 +54,7 @@
 </template>
 
 <script>
-import Header from "@/components/Header";
+import Header from "@/components/Header/Header";
 export default {
   name: "Home",
   components: {

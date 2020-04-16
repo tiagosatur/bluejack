@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header title="Ordered pile" />
+    <Header title="ORDERED PILE" />
 
     <b-alert v-model="showError" variant="danger" dismissible>
       {{ errorMessage }}
@@ -52,9 +52,9 @@
 
 <script>
 import { mapState, mapActions } from "vuex";
-import Card from "@/components/Card";
-import Spinner from "@/components/Spinner";
-import Header from "@/components/Header";
+import Card from "@/components/Card/Card";
+import Spinner from "@/components/Spinner/Spinner";
+import Header from "@/components/Header/Header";
 
 import {
   reorderDeck,
