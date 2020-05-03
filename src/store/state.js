@@ -7,7 +7,6 @@ export default {
   pile: {
     name: {
       blueJackPile: "blueJackPile",
-      rotationCardPile: "rotationCardPile",
     },
     isPileLoading: false,
     error: "",
