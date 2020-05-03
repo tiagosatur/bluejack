@@ -1,29 +1,20 @@
 export default function getPileMiddleware(res) {
   const {
     data: {
-      success: successRotationCard,
-      piles: {
-        rotationCardPile: { cards: rotationCardList },
-      },
-    },
-  } = res[0];
-  const {
-    data: {
-      success: successDefault,
+      success,
       piles: {
         blueJackPile: { cards: defaultCards },
       },
     },
-  } = res[1];
+  } = res;
+  const allCards = getCardsCode(defaultCards);
+  const cards = allCards.slice(1);
+  const rotationCard = allCards.slice(0, 1)[0];
 
   return {
-    cards: getCardsCode(defaultCards),
-    rotationCard: rotationCardList[0].code || null,
-    success:
-      successRotationCard &&
-      successDefault &&
-      res[1].data.piles.blueJackPile &&
-      res[0].data.piles.rotationCardPile,
+    cards,
+    rotationCard,
+    success: success && res.data.piles.blueJackPile,
   };
 }
 

@@ -17,27 +17,15 @@ export default {
   get: {
     createDeckService: () =>
       axios.get(NEW_DECK_URL).then((res) => createDeckMiddleware(res)),
-    addPileService: ({
-      deckId,
-      rotationCardPile,
-      blueJackPile,
-      cards,
-      rotationCard,
-    }) => {
+    addPileService: ({ deckId, blueJackPile, cards }) => {
       return axios
-        .all([
-          axios.get(NEW_PILE_URL(deckId, rotationCardPile, rotationCard)),
-          axios.get(NEW_PILE_URL(deckId, blueJackPile, cards)),
-        ])
+        .get(NEW_PILE_URL(deckId, blueJackPile, cards))
         .then((res) => addPileMiddleware(res));
     },
 
-    getPileService: ({ deckId, rotationCardPile, blueJackPile }) =>
+    getPileService: ({ deckId, blueJackPile }) =>
       axios
-        .all([
-          axios.get(GET_PILE_URL(deckId, rotationCardPile)),
-          axios.get(GET_PILE_URL(deckId, blueJackPile)),
-        ])
+        .get(GET_PILE_URL(deckId, blueJackPile))
         .then((res) => getPileMiddleware(res)),
     drawDeckService: (deckId) =>
       axios.get(DRAW_DECK_URL(deckId)).then((res) => res.data),

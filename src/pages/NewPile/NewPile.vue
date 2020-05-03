@@ -110,8 +110,7 @@ export default {
         const newDeckId = await this.createDeck();
         await this.drawDeck();
         await this.addPile({
-          cards: stringifiedCardValues,
-          rotationCard: this.rotationCard,
+          cards: `${this.rotationCard},${stringifiedCardValues}`,
         });
         this.$router &&
           this.$router.push({

@@ -24,15 +24,13 @@ export default {
       })
       .catch((e) => commit(TYPES.DRAW_DECK_FAIL, e));
   },
-  addPile: ({ commit, state }, { cards, rotationCard }) => {
+  addPile: ({ commit, state }, { cards }) => {
     commit(TYPES.ADD_PILE_PENDING);
     return api.get
       .addPileService({
         deckId: state.deck.deckId,
-        rotationCardPile: state.pile.name.rotationCardPile,
         blueJackPile: state.pile.name.blueJackPile,
         cards,
-        rotationCard,
       })
       .then((res) => {
         !res.success && Promise.reject(res);
@@ -49,7 +47,6 @@ export default {
     return api.get
       .getPileService({
         deckId,
-        rotationCardPile: state.pile.name.rotationCardPile,
         blueJackPile: state.pile.name.blueJackPile,
       })
       .then((res) => {
