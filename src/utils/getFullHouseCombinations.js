@@ -1,4 +1,4 @@
-export default function (reorderedUserCards) {
+export default function(reorderedUserCards) {
   // create a rank=>card mapping
   const ranks = reorderedUserCards.reduce((ranks, card) => {
     ranks[card.charAt(0)] = ranks[card.charAt(0)]
@@ -44,7 +44,7 @@ export default function (reorderedUserCards) {
 
   threes.map((three) => {
     twos.map((two) => {
-      fullHouseCombos.push([...three, ...two]);
+      fullHouseCombos.push([...three, ...two].join(", "));
     });
   });
 

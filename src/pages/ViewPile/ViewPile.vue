@@ -34,12 +34,8 @@
         v-if="fullHouseCombos.length > 0"
       >
         <ol class="bj-fullhouse-list">
-          <li v-for="(cardlist, index) in fullHouseCombos" v-bind:key="index">
-            [
-            <span v-for="(card, i) in cardlist" v-bind:key="i">
-              {{ card }}
-            </span>
-            ]
+          <li v-for="(combo, index) in fullHouseCombos" v-bind:key="index">
+            {{ combo }}
           </li>
         </ol>
       </div>
@@ -108,10 +104,12 @@ export default {
     cards() {
       if (this.rotationCard) {
         this.reorderedDeck = reorderDeck(this.rotationCard);
+
         const { reorderedUserCards, highCard } = reorderUserCards(
           this.cards,
           this.reorderedDeck
         );
+
         this.reorderedUserCards = reorderedUserCards;
         this.highCard = highCard;
       }
